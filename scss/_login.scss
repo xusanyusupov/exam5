@@ -16,9 +16,12 @@ body {
     align-items: center;
     .fa-solid.fa-xmark{
         position: absolute;
-        color: var(--inpBackground);
+        color: var(--colorBlack);
         right: 5%;
         font-size: 20px;
+        padding: 5px 8px;
+        background-color: var(--inpBackground);
+        border-radius: 50%;
     }
     .containerX {
         max-width: 860px;
@@ -280,6 +283,19 @@ footer {
         }
     }
 
+}
+
+@media (max-width:800px) {
+    .top__header {
+        display: none;
+            .containerX {
+                .top_header-item {
+                    .flex {
+                        display: none;
+                    }
+                }
+            }
+        }
 }
 
 @media (max-width:600px) {

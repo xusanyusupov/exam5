@@ -1,0 +1,251 @@
+.loader {
+    --s: 25px;
+    --g: 5px;
+
+    width: calc(3*(1.353*var(--s) + var(--g)));
+    display: grid;
+    justify-items: end;
+    aspect-ratio: 3;
+    overflow: hidden;
+    --_m: linear-gradient(90deg, #0000, #000 15px calc(100% - 15px), #0000);
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+}
+
+.loader:before {
+    content: "";
+    width: 200%;
+    background:
+        linear-gradient(90deg, #000000 50%, #0000 0),
+        conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),
+            #fff 135deg, #666 0 270deg, #aaa 0);
+    background-blend-mode: multiply;
+    --_m:
+        linear-gradient(to bottom right,
+            #0000 calc(0.25*var(--s)), #000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)), #0000 0),
+        conic-gradient(from -90deg at right var(--g) bottom var(--g), #000 90deg, #0000 0);
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    background-size: calc(100%/3) 100%, calc(100%/6) 100%;
+    -webkit-mask-size: calc(100%/6) 100%;
+    mask-size: calc(100%/6) 100%;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    animation: l10 1s infinite linear;
+}
+
+@keyframes l10 {
+    to {
+        transform: translate(calc(100%/3))
+    }
+}
+
+// loader 
+main {
+    .main__top-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            color: #000000;
+            font-size: 17px;
+            font-weight: 700;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+
+    .container {
+        .info__wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 70px;
+            margin-top: 80px;
+
+            .info__img {
+                img {
+                    width: 500px;
+                    height: 600px;
+                    border-radius: 18px;
+                    object-fit: contain;
+                }
+            }
+
+            .info__text {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .info__title {
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+
+                .info__brand {
+                    color: #00FF66;
+                }
+
+                .info__price {
+                    font-size: 24px;
+                }
+
+                .info__desc {
+                    font-size: 15px;
+                }
+
+                .info__size-btn {
+                    b {
+                        font-size: 20px;
+                    }
+
+                    button {
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid #00000067;
+                        border-radius: 8px;
+                        color: var(--btnBackground);
+                        font-weight: 600;
+                        background: transparent;
+                        transition: .3s ease;
+
+                        &:hover {
+                            background-color: var(--btnBackground);
+                            color: var(--inpBackground);
+                        }
+
+                        &:focus {
+                            background-color: var(--btnBackground);
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .info__add-or-remove {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    button {
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid #00000067;
+                        border-radius: 8px;
+                        background: transparent;
+                        color: var(--btnBackground);
+                        font-size: 20px;
+                        transition: .3s ease;
+
+                        &:hover {
+                            background-color: var(--btnBackground);
+                            color: var(--inpBackground);
+                        }
+
+                        &:focus {
+                            background-color: var(--btnBackground);
+                            color: #fff;
+                        }
+                    }
+
+                    span {
+                        font-size: 23px;
+                        font-weight: 600;
+                        color: var(--btnBackground);
+                    }
+                }
+
+                .item__task-wrapper {
+                    margin: 40px 0;
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid rgba(0, 0, 0, 0.397);
+                    border-radius: 8px;
+
+                    .info__task {
+                        display: flex;
+                        align-items: center;
+                        gap: 40px;
+                        padding: 10px 20px;
+                    }
+
+                    .info__task.border {
+                        border-top: 1px solid rgba(0, 0, 0, 0.397);
+                        ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width:900px) {
+    main {
+        .container {
+            .info__wrapper {
+                .info__img {
+                    img {
+                        width: 400px;
+                        height: 450px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:800px) {
+    main {
+        .container {
+            .info__wrapper {
+                .info__img {
+                    img {
+                        width: 350px;
+                        height: 400px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 799px) {
+    main {
+        .container {
+            .info__wrapper {
+                grid-template-columns: repeat(1,1fr);
+                .info__img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        width: 300px;
+                        height: 300px;
+                        object-fit: contain;
+                    }
+                }
+                .info__text{
+                    // text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .info__size-btn{
+                        gap: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .info__add-or-remove{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: -30px;
+                    }
+                }
+            }
+        }
+    }
+}
